@@ -1,5 +1,5 @@
 var assert = require('assert'),
-    RBAC   = require('../');
+    RBAC   = require('../src');
 
 var rules = [
     {a: 'visitor'        , can: 'read articles'},

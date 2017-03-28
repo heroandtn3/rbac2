@@ -5,7 +5,7 @@ const mocha = require('gulp-mocha');
 gulp.task('default', ['lint', 'test']);
 
 gulp.task('lint', () => {
-  return gulp.src(['gulpfile.js', 'index.js'])
+  return gulp.src(['gulpfile.js', 'src/**/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
