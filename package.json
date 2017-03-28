@@ -4,7 +4,7 @@
   "description": "Simple RBAC checker with support for context checks.",
   "main": "index.js",
   "scripts": {
-    "test": "PATH=$(npm bin):$PATH mocha --recursive --full-trace --bail --check-leaks --reporter list tests"
+    "test": "gulp"
   },
   "keywords": [
     "rbac",
@@ -34,6 +34,7 @@
     "eslint-plugin-import": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^4.1.0",
     "mocha": "^2.3.4"
   }
 }

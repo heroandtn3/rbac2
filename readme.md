@@ -183,7 +183,7 @@ RBAC.cacheTrees = true;
 ## Testing
 Install dev dependencies and run:
 ```bash
-npm test
+gulp
 ```
 
 ## License
