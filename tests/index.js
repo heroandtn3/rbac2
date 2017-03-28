@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 var assert = require('assert'),
     RBAC   = require('../src');
 
@@ -61,6 +63,46 @@ describe('RBAC', function () {
 
 describe('RBAC with caching', function () {
     var rbac = new RBAC(rules, false, true);
+
+    describe('check', function () {
+        it('should work with no-condition paths', function (done) {
+            rbac.check('admin', 'read articles', function (err, res) {
+                if (err) {
+                    throw err;
+                }
+                assert.ok(res);
+                done();
+            });
+        });
+
+        it('should work with conditional functions - fail case', function (done) {
+            rbac.check('user', 'edit article', function (err, res) {
+                if (err) {
+                    throw err;
+                }
+
+                assert.ok(!res);
+                done();
+            });
+        });
+
+        it('should work with conditional functions - pass case', function (done) {
+            rbac.check('user', 'edit article', {
+                userId: 2
+            }, function (err, res) {
+                if (err) {
+                    throw err;
+                }
+
+                assert.ok(res);
+                done();
+            });
+        });
+    });
+});
+
+describe('RBAC with async rules', function () {
+    var rbac = new RBAC(callback => callback(null, rules));
 
     describe('check', function () {
         it('should work with no-condition paths', function (done) {
